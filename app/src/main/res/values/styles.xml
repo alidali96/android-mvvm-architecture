@@ -117,10 +117,7 @@
         <item name="android:background">@null</item>
     </style>
 
-    <style name="Button.Flat" >
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+    <style name="Button.Flat" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:paddingLeft">2dp</item>
         <item name="android:paddingRight">2dp</item>
         <item name="android:textSize">14sp</item>
