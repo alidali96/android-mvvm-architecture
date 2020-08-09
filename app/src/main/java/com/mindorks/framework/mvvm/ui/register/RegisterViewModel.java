@@ -125,4 +125,8 @@ public class RegisterViewModel extends BaseViewModel<RegisterNavigator> {
     public void onServerRegisterClick() {
         getNavigator().register();
     }
+
+    public void onLoginClick() {
+        getNavigator().openLoginActivity();
+    }
 }

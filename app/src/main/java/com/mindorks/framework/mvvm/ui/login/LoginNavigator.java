@@ -18,6 +18,7 @@ package com.mindorks.framework.mvvm.ui.login;
 
 /**
  * Created by amitshekhar on 08/07/17.
+ * updated: 09-08-2020 (Ali Dali)
  */
 
 public interface LoginNavigator {
@@ -27,4 +28,6 @@ public interface LoginNavigator {
     void login();
 
     void openMainActivity();
+
+    void openRegisterActivity();
 }

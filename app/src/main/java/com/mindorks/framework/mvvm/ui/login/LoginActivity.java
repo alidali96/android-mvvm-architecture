@@ -27,9 +27,11 @@ import com.mindorks.framework.mvvm.databinding.ActivityLoginBinding;
 import com.mindorks.framework.mvvm.di.component.ActivityComponent;
 import com.mindorks.framework.mvvm.ui.base.BaseActivity;
 import com.mindorks.framework.mvvm.ui.main.MainActivity;
+import com.mindorks.framework.mvvm.ui.register.RegisterActivity;
 
 /**
  * Created by amitshekhar on 08/07/17.
+ * updated: 09-08-2020 (Ali Dali)
  */
 
 public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> implements LoginNavigator {
@@ -70,6 +72,13 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     public void openMainActivity() {
         Intent intent = MainActivity.newIntent(LoginActivity.this);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void openRegisterActivity() {
+        Intent intent = RegisterActivity.newIntent(LoginActivity.this);
         startActivity(intent);
         finish();
     }

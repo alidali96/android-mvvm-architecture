@@ -43,10 +43,12 @@
     <!--Register-->
     <string name="register_dummy">Register Dummy</string>
     <string name="register">Register</string>
+    <string name="already_have_account">already have an account?</string>
 
     <!--Login-->
     <string name="login_dummy">Login Dummy</string>
     <string name="login">Login</string>
+    <string name="no_account">don\'t have an account?</string>
 
     <string name="email">Email</string>
     <string name="password">Password</string>

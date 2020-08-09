@@ -26,6 +26,7 @@ import com.mindorks.framework.mvvm.R;
 import com.mindorks.framework.mvvm.databinding.ActivityRegisterBinding;
 import com.mindorks.framework.mvvm.di.component.ActivityComponent;
 import com.mindorks.framework.mvvm.ui.base.BaseActivity;
+import com.mindorks.framework.mvvm.ui.login.LoginActivity;
 import com.mindorks.framework.mvvm.ui.main.MainActivity;
 
 /**
@@ -63,6 +64,7 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, Regi
         String confirmPassword = mActivityRegisterBinding.etConfirmPassword.getText().toString().trim();
         // if passwords do not match
         if (!mViewModel.isPasswordsMatch(password, confirmPassword)) {
+            hideKeyboard();
             Toast.makeText(this, getString(R.string.password_not_match), Toast.LENGTH_SHORT).show();
             return;
         }
@@ -78,6 +80,13 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, Regi
     @Override
     public void openMainActivity() {
         Intent intent = MainActivity.newIntent(RegisterActivity.this);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void openLoginActivity() {
+        Intent intent = LoginActivity.newIntent(RegisterActivity.this);
         startActivity(intent);
         finish();
     }

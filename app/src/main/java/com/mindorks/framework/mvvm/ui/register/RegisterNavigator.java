@@ -29,4 +29,6 @@ public interface RegisterNavigator {
     void register();
 
     void openMainActivity();
+
+    void openLoginActivity();
 }

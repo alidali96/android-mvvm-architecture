@@ -25,6 +25,7 @@ import com.mindorks.framework.mvvm.utils.rx.SchedulerProvider;
 
 /**
  * Created by amitshekhar on 08/07/17.
+ * updated: 09-08-2020 (Ali Dali)
  */
 
 public class LoginViewModel extends BaseViewModel<LoginNavigator> {
@@ -118,5 +119,9 @@ public class LoginViewModel extends BaseViewModel<LoginNavigator> {
 
     public void onServerLoginClick() {
         getNavigator().login();
+    }
+
+    public void onRegisterClick() {
+        getNavigator().openRegisterActivity();
     }
 }
