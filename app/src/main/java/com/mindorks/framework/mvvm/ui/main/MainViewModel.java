@@ -119,7 +119,8 @@ public class MainViewModel extends BaseViewModel<MainNavigator> {
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(response -> {
                     setIsLoading(false);
-                    getNavigator().openLoginActivity();
+//                    getNavigator().openLoginActivity();
+                    getNavigator().openRegisterActivity();
                 }, throwable -> {
                     setIsLoading(false);
                     getNavigator().handleError(throwable);

@@ -14,18 +14,19 @@
  *  limitations under the License
  */
 
-package com.mindorks.framework.mvvm.ui.main;
+package com.mindorks.framework.mvvm.ui.register;
+
 
 /**
- * Created by amitshekhar on 09/07/17.
- * updated: 09-08-2020 (Ali Dali)
+ * @author Ali Dali
+ * @since 09-08-2020
  */
 
-public interface MainNavigator {
+public interface RegisterNavigator {
 
     void handleError(Throwable throwable);
 
-    void openLoginActivity();
+    void register();
 
-    void openRegisterActivity();
+    void openMainActivity();
 }

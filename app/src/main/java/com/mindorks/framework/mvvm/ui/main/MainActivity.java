@@ -46,6 +46,7 @@ import com.mindorks.framework.mvvm.ui.base.BaseActivity;
 import com.mindorks.framework.mvvm.ui.feed.FeedActivity;
 import com.mindorks.framework.mvvm.ui.login.LoginActivity;
 import com.mindorks.framework.mvvm.ui.main.rating.RateUsDialog;
+import com.mindorks.framework.mvvm.ui.register.RegisterActivity;
 import com.mindorks.framework.mvvm.utils.ScreenUtils;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -133,6 +134,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     @Override
     public void openLoginActivity() {
         startActivity(LoginActivity.newIntent(this));
+        finish();
+    }
+
+    @Override
+    public void openRegisterActivity() {
+        startActivity(RegisterActivity.newIntent(this));
         finish();
     }
 

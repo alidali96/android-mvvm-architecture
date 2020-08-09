@@ -18,10 +18,12 @@ package com.mindorks.framework.mvvm.ui.splash;
 
 /**
  * Created by amitshekhar on 08/07/17.
+ * updated: 09-08-2020 (Ali Dali)
  */
 
 public interface SplashNavigator {
 
+    void openRegisterActivity();
     void openLoginActivity();
 
     void openMainActivity();

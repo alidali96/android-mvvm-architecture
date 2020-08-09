@@ -40,11 +40,17 @@
     <string name="some_error">Some Error Occurred!</string>
     <string name="connection_error">Internet connection lost!</string>
 
+    <!--Register-->
+    <string name="register_dummy">Register Dummy</string>
+    <string name="register">Register</string>
+
     <!--Login-->
     <string name="login_dummy">Login Dummy</string>
     <string name="login">Login</string>
+
     <string name="email">Email</string>
     <string name="password">Password</string>
+
 
     <!--Login Validation-->
     <string name="invalid_email_password">Please provide a valid email and password.</string>

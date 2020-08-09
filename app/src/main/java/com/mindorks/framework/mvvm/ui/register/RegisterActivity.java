@@ -14,26 +14,31 @@
  *  limitations under the License
  */
 
-package com.mindorks.framework.mvvm.ui.splash;
+package com.mindorks.framework.mvvm.ui.register;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.mindorks.framework.mvvm.BR;
 import com.mindorks.framework.mvvm.R;
-import com.mindorks.framework.mvvm.databinding.ActivitySplashBinding;
+import com.mindorks.framework.mvvm.databinding.ActivityRegisterBinding;
 import com.mindorks.framework.mvvm.di.component.ActivityComponent;
 import com.mindorks.framework.mvvm.ui.base.BaseActivity;
-import com.mindorks.framework.mvvm.ui.login.LoginActivity;
 import com.mindorks.framework.mvvm.ui.main.MainActivity;
-import com.mindorks.framework.mvvm.ui.register.RegisterActivity;
 
 /**
  * Created by amitshekhar on 08/07/17.
- * updated: 09-08-2020 (Ali Dali)
  */
 
-public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel> implements SplashNavigator {
+public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, RegisterViewModel> implements RegisterNavigator {
+
+    private ActivityRegisterBinding mActivityRegisterBinding;
+
+    public static Intent newIntent(Context context) {
+        return new Intent(context, RegisterActivity.class);
+    }
 
     @Override
     public int getBindingVariable() {
@@ -42,26 +47,29 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_splash;
+        return R.layout.activity_login;
     }
 
     @Override
-    public void openLoginActivity() {
-        Intent intent = LoginActivity.newIntent(SplashActivity.this);
-        startActivity(intent);
-        finish();
+    public void handleError(Throwable throwable) {
+        // handle error
     }
 
     @Override
-    public void openRegisterActivity() {
-        Intent intent = RegisterActivity.newIntent(SplashActivity.this);
-        startActivity(intent);
-        finish();
+    public void register() {
+        String email = mActivityRegisterBinding.etEmail.getText().toString();
+        String password = mActivityRegisterBinding.etPassword.getText().toString();
+        if (mViewModel.isEmailAndPasswordValid(email, password)) {
+            hideKeyboard();
+            mViewModel.register(email, password);
+        } else {
+            Toast.makeText(this, getString(R.string.invalid_email_password), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     public void openMainActivity() {
-        Intent intent = MainActivity.newIntent(SplashActivity.this);
+        Intent intent = MainActivity.newIntent(RegisterActivity.this);
         startActivity(intent);
         finish();
     }
@@ -69,8 +77,8 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mActivityRegisterBinding = getViewDataBinding();
         mViewModel.setNavigator(this);
-        mViewModel.startSeeding();
     }
 
     @Override
