@@ -49,6 +49,10 @@ public class RegisterViewModel extends BaseViewModel<RegisterNavigator> {
         return true;
     }
 
+    public boolean isPasswordsMatch(String password, String confirmPassword) {
+        return password.equals(confirmPassword);
+    }
+
     public void register(String email, String password) {
         setIsLoading(true);
         getCompositeDisposable().add(getDataManager()

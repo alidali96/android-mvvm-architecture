@@ -50,7 +50,10 @@
 
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
 
+    <!--Register Validation-->
+    <string name="password_not_match">Passwords do not match.</string>
 
     <!--Login Validation-->
     <string name="invalid_email_password">Please provide a valid email and password.</string>

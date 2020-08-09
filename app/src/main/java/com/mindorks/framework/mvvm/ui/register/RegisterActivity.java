@@ -58,8 +58,15 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, Regi
 
     @Override
     public void register() {
-        String email = mActivityRegisterBinding.etEmail.getText().toString();
-        String password = mActivityRegisterBinding.etPassword.getText().toString();
+        String email = mActivityRegisterBinding.etEmail.getText().toString().trim();
+        String password = mActivityRegisterBinding.etPassword.getText().toString().trim();
+        String confirmPassword = mActivityRegisterBinding.etConfirmPassword.getText().toString().trim();
+        // if passwords do not match
+        if (!mViewModel.isPasswordsMatch(password, confirmPassword)) {
+            Toast.makeText(this, getString(R.string.password_not_match), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (mViewModel.isEmailAndPasswordValid(email, password)) {
             hideKeyboard();
             mViewModel.register(email, password);
