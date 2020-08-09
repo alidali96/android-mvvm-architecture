@@ -29,7 +29,8 @@ import com.mindorks.framework.mvvm.ui.base.BaseActivity;
 import com.mindorks.framework.mvvm.ui.main.MainActivity;
 
 /**
- * Created by amitshekhar on 08/07/17.
+ * @author Ali Dali
+ * @since 09-08-2020
  */
 
 public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, RegisterViewModel> implements RegisterNavigator {
@@ -47,7 +48,7 @@ public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, Regi
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_login;
+        return R.layout.activity_register;
     }
 
     @Override
