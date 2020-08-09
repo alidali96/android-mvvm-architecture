@@ -11,6 +11,7 @@ import com.mindorks.framework.mvvm.ui.feed.FeedPagerAdapter;
 import com.mindorks.framework.mvvm.ui.feed.FeedViewModel;
 import com.mindorks.framework.mvvm.ui.login.LoginViewModel;
 import com.mindorks.framework.mvvm.ui.main.MainViewModel;
+import com.mindorks.framework.mvvm.ui.register.RegisterViewModel;
 import com.mindorks.framework.mvvm.ui.splash.SplashViewModel;
 import com.mindorks.framework.mvvm.utils.rx.SchedulerProvider;
 
@@ -53,6 +54,13 @@ public class ActivityModule {
         Supplier<LoginViewModel> supplier = () -> new LoginViewModel(dataManager, schedulerProvider);
         ViewModelProviderFactory<LoginViewModel> factory = new ViewModelProviderFactory<>(LoginViewModel.class, supplier);
         return new ViewModelProvider(activity, factory).get(LoginViewModel.class);
+    }
+
+    @Provides
+    RegisterViewModel provideRegisterViewModel(DataManager dataManager, SchedulerProvider schedulerProvider) {
+        Supplier<RegisterViewModel> supplier = () -> new RegisterViewModel(dataManager, schedulerProvider);
+        ViewModelProviderFactory<RegisterViewModel> factory = new ViewModelProviderFactory<>(RegisterViewModel.class, supplier);
+        return new ViewModelProvider(activity, factory).get(RegisterViewModel.class);
     }
 
     @Provides
